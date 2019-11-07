@@ -263,7 +263,7 @@ spec:
   storageClassName: fast
   awsElasticBlockStore:
     fsType: ext4
-    volumeID: vol-0758e36178760bd8a
+    volumeID: PROMETHEUS_VOLUME_ID
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1

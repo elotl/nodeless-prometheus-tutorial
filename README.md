@@ -64,10 +64,11 @@ replicaset.apps/kube-state-metrics-d657c8bf4       1         1         1       7
 replicaset.apps/prometheus-deployment-5fc9b49dcb   1         1         1       71s
 ```
 
-We now have the following stack.
-*Note: Stateful application Prometheus is deployed on the worker node, and stateless applications {Grafana, kube-state-metrics} are deployed via Nodeless fashion. Once persistent state support is available in Nodeless k8s, Prometheus will be deployed in Nodeless way as well.*
+Our cluster now has following components.
+
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/promstack.png "Prometheus Stack")
 
+*Note: Stateful application Prometheus is deployed on the worker node, and stateless applications {Grafana, kube-state-metrics} are deployed via Nodeless fashion. Once persistent state support is available in Nodeless k8s, Prometheus will be deployed in Nodeless way as well.*
 
 ### Step 3: Create Grafana dashboard for Nodeless Kubernetes
 
@@ -87,7 +88,7 @@ Import [Grafana dashboard 11124](https://grafana.com/grafana/dashboards/11124).
 
 There are 3 Compute Cells in our cluster running {Grafana, kube-state-metrics} and a system pod.
 
-### Step 4: Deploy Nodeless workloads, monitor using Prometheus
+### Step 4: Deploy Nginx, monitor using Prometheus
 
 Deploy Nginx deployment with 3 replicas.
 
@@ -100,6 +101,11 @@ $ kubectl create -f nginx.yaml
 Our cluster now has the following components.
 
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/promnginxstack.png "Prometheus Nginx")
+
+Grafana dashboard will reflect metrics from the 3 Nginx replicas running in just-in-time provisioned cells. Our Cell count went up from `3` to `6`.
+
+![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/grafana-dashboard-2.png "Grafana Nginx")
+
 ### Teardown
 
 Follow [teardown instructions from kubeadm repo](https://github.com/elotl/kubeadm-aws#teardown).

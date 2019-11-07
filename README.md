@@ -96,6 +96,10 @@ $ wget https://raw.githubusercontent.com/elotl/nodeless-prometheus-tutorial/mast
 
 $ kubectl create -f nginx.yaml
 ```
+
+Our cluster now has the following components.
+
+![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/promnginxstack.png "Prometheus Nginx")
 ### Teardown
 
 Follow [teardown instructions from kubeadm repo](https://github.com/elotl/kubeadm-aws#teardown).

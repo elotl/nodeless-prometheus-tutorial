@@ -28,6 +28,7 @@ $ wget https://raw.githubusercontent.com/elotl/nodeless-prometheus-tutorial/mast
 ```
 
 Create a 250GiB EBS volume in the same Availability Zone as your kubernetes cluster.
+
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/prometheus-ebs-volume.png "Prometheus EBS Volume")
 
 Insert volume-id of EBS volume in the manifest.
@@ -80,6 +81,7 @@ afd9f0c0a7f2a41df8e6c0dfa5017564-306308846.us-east-1.elb.amazonaws.com
 ```
 
 Create Datasource for Prometheus called `DS_Prometheus` with http url set to `http://prometheus-service:8080` since Grafana and Prometheus are running in the same k8s cluster.
+
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/prometheus-datasource.png "Prometheus Datasource")
 
 Import [Grafana dashboard 11124](https://grafana.com/grafana/dashboards/11124).

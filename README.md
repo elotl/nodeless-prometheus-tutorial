@@ -4,8 +4,6 @@
 
 [Follow instructions in this repo](https://github.com/elotl/kubeadm-aws) to create a {1 master, 1 worker} Nodeless Kubernetes cluster.
 
-### Step 2: Verify cluster is up
-
 Log on to Kubernetes master, verify cluster is up.
 
 ```
@@ -23,7 +21,7 @@ ip-10-0-20-188.ec2.internal   Ready    worker   24d   v1.16.1   10.0.20.188   54
 ip-10-0-23-147.ec2.internal   Ready    master   24d   v1.16.1   10.0.23.147   100.26.23.126   Ubuntu 16.04.6 LTS   4.4.0-1092-aws   docker://18.9.7
 ```
 
-### Step 3: Create {Prometheus, kube-state-metrics, Grafana} stack
+### Step 2: Create {Prometheus, kube-state-metrics, Grafana} stack
 
 ```
 $ wget https://raw.githubusercontent.com/elotl/nodeless-prometheus-tutorial/master/prometheus-grafana-metrics.yaml
@@ -65,7 +63,7 @@ replicaset.apps/grafana-7666cdc5cb                 1         1         1       7
 replicaset.apps/kube-state-metrics-d657c8bf4       1         1         1       71s
 replicaset.apps/prometheus-deployment-5fc9b49dcb   1         1         1       71s
 ```
-### Step 4: Create Grafana dashboard for Nodeless Kubernetes
+### Step 3: Create Grafana dashboard for Nodeless Kubernetes
 
 Get external loadbalancer address for Grafana service and access Grafana through a web browser.
 
@@ -76,6 +74,9 @@ afd9f0c0a7f2a41df8e6c0dfa5017564-306308846.us-east-1.elb.amazonaws.com
 
 Create Datasource for Prometheus called `DS_Prometheus` with http url set to `http://prometheus-service:8080` since Grafana and Prometheus are running in the same k8s cluster.
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/prometheus-datasource.png "Prometheus Datasource")
+
+Import [Grafana dashboard 11124](https://grafana.com/grafana/dashboards/11124).
+![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/grafana-dashboard-1.png "Grafana Dashboard")
 
 ### Teardown
 

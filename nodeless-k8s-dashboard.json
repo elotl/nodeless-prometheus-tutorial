@@ -62,12 +62,12 @@
       }
     ]
   },
-  "description": "Pods, Containers, nodes, cpu etc. Good to put it on a TV screen.",
+  "description": "Nodes, Pods, and Compute Cells in a Nodeless Kubernetes clusster.",
   "editable": true,
   "gnetId": 10092,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1573051616827,
+  "iteration": 1573051616830,
   "links": [],
   "panels": [
     {
@@ -229,7 +229,7 @@
       "fontSize": "100%",
       "gridPos": {
         "h": 5,
-        "w": 10,
+        "w": 5,
         "x": 9,
         "y": 0
       },
@@ -290,9 +290,91 @@
           "refId": "A"
         }
       ],
-      "title": "Pet Worker Node with Nodeless Plugin",
+      "title": "Worker Node with Nodeless Plugin",
       "transform": "table",
       "type": "table"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_DS_PROMETHEUS}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 14,
+        "y": 0
+      },
+      "id": 36,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum(kube_pod_container_info{container_id=~\"containerd://kiyot.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Nodeless Compute Cells",
+      "type": "singlestat",
+      "valueFontSize": "200%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -445,7 +527,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Number of Pods Running on Control Plane",
+      "title": "Pods (Running) on Control Plane",
       "type": "singlestat",
       "valueFontSize": "200%",
       "valueMaps": [
@@ -527,7 +609,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Number of Pods Running on Pet Worker",
+      "title": "Pods (Running) on Worker Node",
       "type": "singlestat",
       "valueFontSize": "200%",
       "valueMaps": [
@@ -609,7 +691,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Number of Pods Running in Nodeless Mode",
+      "title": "Pods (Running) on Nodeless Cells",
       "type": "singlestat",
       "valueFontSize": "200%",
       "valueMaps": [
@@ -689,7 +771,7 @@
           "refId": "A"
         }
       ],
-      "title": "Pods running on Control Plane",
+      "title": "Pods (Running) on Control Plane",
       "transform": "table",
       "type": "table"
     },
@@ -761,7 +843,7 @@
           "refId": "A"
         }
       ],
-      "title": "Pods running on Pet Worker",
+      "title": "Pods (Running) on Worker",
       "transform": "table",
       "type": "table"
     },
@@ -833,12 +915,12 @@
           "refId": "A"
         }
       ],
-      "title": "Pods running in Nodeless Mode",
+      "title": "Pods (Running) on Nodeless Cells",
       "transform": "table",
       "type": "table"
     }
   ],
-  "refresh": "1m",
+  "refresh": "10s",
   "schemaVersion": 16,
   "style": "dark",
   "tags": [],
@@ -924,7 +1006,7 @@
     ]
   },
   "timezone": "",
-  "title": "General Overview of Kubernetes Cluster",
+  "title": "Overview of Nodeless Kubernetes Cluster",
   "uid": "KiF1Ti6mz",
   "version": 2
 }

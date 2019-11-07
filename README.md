@@ -76,7 +76,10 @@ Create Datasource for Prometheus called `DS_Prometheus` with http url set to `ht
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/prometheus-datasource.png "Prometheus Datasource")
 
 Import [Grafana dashboard 11124](https://grafana.com/grafana/dashboards/11124).
+
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/grafana-dashboard-1.png "Grafana Dashboard")
+
+There are 3 Compute Cells in our cluster running {Grafana, kube-state-metrics} and a system pod.
 
 ### Teardown
 

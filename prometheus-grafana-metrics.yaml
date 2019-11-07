@@ -520,6 +520,7 @@ spec:
     protocol: TCP
   selector:
     k8s-app: kube-state-metrics
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment

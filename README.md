@@ -102,7 +102,7 @@ Our cluster now has the following components.
 
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/promnginxstack.png "Prometheus Nginx")
 
-Grafana dashboard will reflect metrics from the 3 Nginx replicas running in just-in-time provisioned cells. Our Cell count went up from `3` to `6`.
+Grafana dashboard will reflect metrics from the 3 Nginx replicas running in just-in-time provisioned compute cells bumping up our cell count from `3` to `6`.
 
 ![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/grafana-dashboard-2.png "Grafana Nginx")
 

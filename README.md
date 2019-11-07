@@ -21,7 +21,7 @@ ip-10-0-20-188.ec2.internal   Ready    worker   24d   v1.16.1   10.0.20.188   54
 ip-10-0-23-147.ec2.internal   Ready    master   24d   v1.16.1   10.0.23.147   100.26.23.126   Ubuntu 16.04.6 LTS   4.4.0-1092-aws   docker://18.9.7
 ```
 
-### Step 2: Create {Prometheus, kube-state-metrics, Grafana} stack
+### Step 2: Deploy {Prometheus, kube-state-metrics, Grafana} stack
 
 ```
 $ wget https://raw.githubusercontent.com/elotl/nodeless-prometheus-tutorial/master/prometheus-grafana-metrics.yaml
@@ -63,6 +63,12 @@ replicaset.apps/grafana-7666cdc5cb                 1         1         1       7
 replicaset.apps/kube-state-metrics-d657c8bf4       1         1         1       71s
 replicaset.apps/prometheus-deployment-5fc9b49dcb   1         1         1       71s
 ```
+
+We now have the following stack.
+*Note: Stateful application Prometheus is deployed on the worker node, and stateless applications {Grafana, kube-state-metrics} are deployed via Nodeless fashion. Once persistent state support is available in Nodeless k8s, Prometheus will be deployed in Nodeless way as well.*
+![alt text](https://github.com/elotl/nodeless-prometheus-tutorial/blob/master/promstack.png "Prometheus Stack")
+
+
 ### Step 3: Create Grafana dashboard for Nodeless Kubernetes
 
 Get external loadbalancer address for Grafana service and access Grafana through a web browser.

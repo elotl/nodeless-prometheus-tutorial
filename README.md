@@ -87,6 +87,15 @@ Import [Grafana dashboard 11124](https://grafana.com/grafana/dashboards/11124).
 
 There are 3 Compute Cells in our cluster running {Grafana, kube-state-metrics} and a system pod.
 
+### Step 4: Deploy Nodeless workloads, monitor using Prometheus
+
+Deploy Nginx deployment with 3 replicas.
+
+```
+$ wget https://raw.githubusercontent.com/elotl/nodeless-prometheus-tutorial/master/nginx.yaml
+
+$ kubectl create -f nginx.yaml
+```
 ### Teardown
 
 Follow [teardown instructions from kubeadm repo](https://github.com/elotl/kubeadm-aws#teardown).

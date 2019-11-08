@@ -1,5 +1,9 @@
 # Monitoring Nodeless Kubernetes with Prometheus, Grafana
 
+Nodeless Kubernetes eliminates capacity planning woes on public cloud, simplifies operations, and improves multi-tenant security. Prometheus and Grafana are fantastic monitoring tools for Kubernetes clusters. This tutorial illustrates how to monitor Nodeless k8s applications with Prometheus and Gafana. 
+
+TL;DR: Nodeless k8s apps are monitored exactly the same way as regular k8s applications.
+
 ### Step 1: Create 1-worker Nodeless Kubernetes cluster
 
 [Follow instructions in this repo](https://github.com/elotl/kubeadm-aws) to create a {1 master, 1 worker} Nodeless Kubernetes cluster.
